@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
+        'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
+<hibernate-mapping>
+    <class name="com.jk.wms.invoice.operdetail.vo.OperDetailModel" table="tbl_operDetail">
+        <id name="uuid">
+            <generator class="native" />
+        </id>
+        <property name="num"/>
+        <property name="operTime"/>
+        <property name="type"/>
+        <many-to-one 
+        	name="gm"
+        	column="goodsUuid"
+        	class="com.jk.wms.invoice.goods.vo.GoodsModel"
+        	/>
+        <many-to-one 
+        	name="sm"
+        	column="storeUuid"
+        	class="com.jk.wms.invoice.store.vo.StoreModel"
+        	/>
+        <many-to-one 
+        	name="em"
+        	column="empUuid"
+        	class="com.jk.wms.auth.emp.vo.EmpModel"
+        	/>        
+    </class>
+</hibernate-mapping>
